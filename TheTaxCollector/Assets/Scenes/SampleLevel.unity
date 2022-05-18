@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 70300275}
   - component: {fileID: 70300274}
   - component: {fileID: 70300273}
-  - component: {fileID: 70300272}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -142,19 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &70300272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 70300271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff8c49a9de7d6eb478a10056f88a100d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!81 &70300273
 AudioListener:
   m_ObjectHideFlags: 0
@@ -230,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129633197}
   - component: {fileID: 2129633196}
+  - component: {fileID: 2129633198}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -302,3 +289,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2129633198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129633195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff8c49a9de7d6eb478a10056f88a100d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
