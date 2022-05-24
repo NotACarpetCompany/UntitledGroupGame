@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
     {
         Bullet clone = Instantiate(projectile, transform.position, transform.rotation);
         clone.speed = BULLET_SPEED;
+        clone.direction = new Vector3(1, 0, 0).normalized;
         clone.timeoutDestructor = BULLET_LIFETIME;
         clone.willDestroy = true;
     }

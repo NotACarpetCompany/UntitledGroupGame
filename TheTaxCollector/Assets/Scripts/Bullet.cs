@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed;
+    public Vector3 direction;
     public int timeoutDestructor;
     public bool willDestroy;
 
@@ -16,15 +17,10 @@ public class Bullet : MonoBehaviour
 
     // FixedUpdate is called at a fixed interval
     void FixedUpdate () {
-
-        // Move character
-        float horDist = speed * Time.fixedDeltaTime;
-        Move(horDist, 0);
+        Move();
     }
 
-    void Move (float horizontalDist, float verticalDist) {
-
-        Vector3 totalMove  = new Vector3 (horizontalDist, verticalDist, 0);
-        transform.position = transform.position + totalMove;
+    void Move() {
+        transform.position = transform.position + direction * speed * Time.deltaTime;
     }
 }
