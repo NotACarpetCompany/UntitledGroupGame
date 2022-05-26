@@ -4,29 +4,11 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-     void Update () 
-     {
-        //Get the Screen positions of the object
-        Vector2 positionOnScreen = Camera.main.WorldToViewportPoint (transform.position);
-         
-        //Get the Screen position of the mouse
-        Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
-         
-        //Get the angle between the points
-        float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
- 
-        //Ta Daaa
-        transform.rotation =  Quaternion.Euler (new Vector3(0f,0f,angle));
-     }
- 
-     float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
-        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
-     }
+   // Update is called once per frame
+   void Update () {
+      Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+      float rotation_z = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+      transform.rotation = Quaternion.Euler(0f, 0f, rotation_z);
+   }
 }
