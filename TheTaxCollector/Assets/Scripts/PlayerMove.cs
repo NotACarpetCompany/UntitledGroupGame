@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {   
     public float speed = 5;
+    public Animator animator;
+
     float horizontalMove = 0f;
     float verticalMove = 0f;
 
@@ -16,6 +18,10 @@ public class PlayerMove : MonoBehaviour
 
         // Looks for up / down input
         verticalMove = Input.GetAxisRaw("Vertical");
+
+        // Check if moving for animator
+        animator.SetFloat("Speed", Mathf.Max(Mathf.Abs(horizontalMove), Mathf.Abs(verticalMove)));
+
 
     }
 
