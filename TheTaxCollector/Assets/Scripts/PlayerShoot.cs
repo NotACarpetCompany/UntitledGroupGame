@@ -7,7 +7,7 @@ public class PlayerShoot : MonoBehaviour
     public Bullet projectile;
     private const float BULLET_SPEED = 5;
     private const int BULLET_LIFETIME = 5;
-    private const float MAX_COOLDOWN = 1;
+    public float max_cooldown;
     private float cooldown = 0;
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class PlayerShoot : MonoBehaviour
         if (Input.GetAxisRaw("Fire1") == 1) {
             if (cooldown <= 0) {
                 Shoot();
-                cooldown = MAX_COOLDOWN;
+                cooldown = max_cooldown;
             }
         }
     }

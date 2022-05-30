@@ -6,41 +6,31 @@ public class StraightEnemy : MonoBehaviour
 {
 
     public float speed;
+    private GameObject playerObj = null;
+    public float angle = 0;
 
-    /* Direction of Player Movement
-    * 1: right
-    * 2: down
-    * 3: left
-    * 4: up
-    */
-    public float moveDirection;
+    // Start is called before the first frame update
+    void Start()
+    {
+        //Initiate Player Object
+        playerObj = GameObject.Find("Player");
+
+        //Get the Screen positions of the enemy
+        Vector2 enemyPosition = Camera.main.ScreenToWorldPoint (transform.position);
+
+        //Get the Screen positions of the player
+        Vector2 playerPosition = (Vector2)Camera.main.ScreenToWorldPoint(playerObj.transform.position);
+
+        //Get the angle between the points
+        angle = AngleBetweenTwoPoints(playerPosition, enemyPosition);
+
+    }
 
     // FixedUpdate is called at a fixed interval
     void FixedUpdate () {
 
-        float horDist = 0;
-        float vertDist = 0;
-
-        // Move character
-        switch (moveDirection) {
-            case 1:
-                horDist = 1;
-                break;
-            case 2:
-                vertDist = 1;
-                break;
-            case 3:
-                horDist = -1;
-                break;
-            case 4:
-                vertDist = -1;
-                break;
-            default:
-                break;
-        }
-
-        horDist = horDist * speed * Time.fixedDeltaTime;
-        vertDist = vertDist * speed * Time.fixedDeltaTime;
+        float horDist = Mathf.Cos(angle) * speed * Time.fixedDeltaTime;
+        float vertDist = Mathf.Sin(angle) * speed * Time.fixedDeltaTime;
         Move(horDist, vertDist);
     }
 
@@ -48,5 +38,9 @@ public class StraightEnemy : MonoBehaviour
 
         Vector3 totalMove  = new Vector3 (horizontalDist, verticalDist, 0);
         transform.position = transform.position + totalMove;
+    }
+
+    float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
+        return Mathf.Atan2(a.y - b.y, a.x - b.x);
     }
 }
