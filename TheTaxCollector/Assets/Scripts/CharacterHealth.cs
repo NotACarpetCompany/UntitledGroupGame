@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterHealth : MonoBehaviour
 {
     public float health = 100;
+    public bool friendly;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,7 @@ public class CharacterHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.health <= 0){
+        if(health <= 0){
             Destroy(gameObject);
         }
     }

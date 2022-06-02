@@ -201,7 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a86be8d935f56458bf890ba77493c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 100
+  friendly: 1
 --- !u!1 &201635538
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ GameObject:
   - component: {fileID: 201635539}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -415,6 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  friendly: 0
 --- !u!1 &1035242582 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5467546503587878258, guid: 2e41f860c68b2234bb1bd664de3c1f7d, type: 3}
@@ -433,6 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  friendly: 1
 --- !u!61 &1035242587
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -539,8 +542,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 803571586962765201, guid: a0534eaa960fba7499b68fd7d4c4cbd9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0534eaa960fba7499b68fd7d4c4cbd9, type: 3}
 --- !u!1 &1285612518
 GameObject:
@@ -690,6 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  friendly: 0
 --- !u!114 &1796072938 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 803571586962765206, guid: a0534eaa960fba7499b68fd7d4c4cbd9, type: 3}
@@ -714,6 +717,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7901068354922901505, guid: e079b18890f35814ba17b3bc55d5cca7, type: 3}
       propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901068354922901508, guid: e079b18890f35814ba17b3bc55d5cca7, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7901068354922901511, guid: e079b18890f35814ba17b3bc55d5cca7, type: 3}
